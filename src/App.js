@@ -6,6 +6,14 @@ import Entercust from './components/Entercust/Entercust';
 import Register from './components/Register/Register';
 import './App.css';
 
+/*
+TODO:
+Add Message boxes for errors
+Finish Enter Customer Info form
+View Customer form
+finish the calendar
+*/
+
 const initialState = {
   input: '',
   box: {},
