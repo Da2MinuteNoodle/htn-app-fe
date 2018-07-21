@@ -8,7 +8,7 @@ class Entercust extends React.Component {
           <div className="enter-cust row" action="index.html" method="post">
             <div className="enterForm-cust col-sm-6">
               <div className="form-group">
-               <label for="sel1">Existing Customer:</label>
+               <label htmlFor="sel1">Existing Customer:</label>
                <select className="form-control" id="sel1">
                  <option>New</option>
                  <option>Cust 1</option>
@@ -17,30 +17,30 @@ class Entercust extends React.Component {
                </select>
               </div>
               <div className="form-group">
-                <label for="usr">Customer Name:</label>
+                <label htmlFor="usr">Customer Name:</label>
                 <input type="text" className="form-control" id="usr" />
               </div>
               <div className="form-group">
-                <label for="phone">Customer Phone:</label>
+                <label htmlFor="phone">Customer Phone:</label>
                 <input type="tel" className="form-control" />
               </div>
             </div>
             <div className="formEnter-dog col-sm-6">
               <div className="enterForm-dog">
               <div className="form-group">
-                <label for="phone">Dog Name:</label>
+                <label htmlFor="phone">Dog Name:</label>
                 <input type="text" className="form-control" />
               </div>
               <div className="form-group">
-                <label for="phone">Dog Breed:</label>
+                <label htmlFor="phone">Dog Breed:</label>
                 <input type="text" className="form-control" />
               </div>
               <div className="form-group">
-                <label for="phone">Dog Size:</label>
+                <label htmlFor="phone">Dog Size:</label>
                 <input type="text" className="form-control" />
               </div>
               <div className="form-group">
-                <label for="phone">Dog Age:</label>
+                <label htmlFor="phone">Dog Age:</label>
                 <input type="text" className="form-control" />
               </div>
               <div className="radio">
