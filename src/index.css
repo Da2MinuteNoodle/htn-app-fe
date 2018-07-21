@@ -115,3 +115,10 @@ button {
 .main-container {
   padding: 10%;
 }
+
+.applecolor {
+  border-radius: 25px;
+  background-color: rgb(234, 235, 237, 0.9);
+  color: black;
+  font-family: verdana;
+}

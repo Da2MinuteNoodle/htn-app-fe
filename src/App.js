@@ -43,6 +43,8 @@ class App extends Component {
       this.setState(initialState)
     } else if (route === 'home') {
       this.setState({isSignedIn: true})
+    } else if (route === 'entercust') {
+      this.setState({isSignedIn: true})
     }
     this.setState({route: route});
   }
@@ -51,17 +53,13 @@ class App extends Component {
     const { isSignedIn, route } = this.state;
     return (
       <div className="App">
-        <Navigation isSignedIn={isSignedIn} onRouteChange={this.onRouteChange} />
-        { route === 'home'
-          ? <div>
-              <Menu />
-              <Entercust />
-            </div>
-          : (
-            route === 'signin'
-            ? <Signin loadUser={this.loadUser} onRouteChange={this.onRouteChange} />
-            : <Register loadUser={this.loadUser} onRouteChange={this.onRouteChange} />
-          )
+        <Navigation isSignedIn={isSignedIn} onRouteChange={this.onRouteChange} className="navigation-01/" />
+        { route === 'home' ?
+              <Menu isSignedIn={isSignedIn} onRouteChange={this.onRouteChange} />
+              : ( route === 'entercust' ?
+              <Entercust isSignedIn={isSignedIn} onRouteChange={this.onRouteChange} />
+              : <Signin loadUser={this.loadUser} onRouteChange={this.onRouteChange} />
+            )
         }
       </div>
     );
