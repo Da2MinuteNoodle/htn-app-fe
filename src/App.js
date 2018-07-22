@@ -10,6 +10,8 @@ import './App.css';
 TODO:
 Add Message boxes for errors
 Finish Enter Customer Info form
+  -Add good response when submitted
+  -Fix booleans not being entered correctly
 View Customer form
 finish the calendar
 */
