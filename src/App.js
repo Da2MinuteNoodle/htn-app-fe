@@ -3,6 +3,7 @@ import Navigation from './components/Navigation/Navigation';
 import Signin from './components/Signin/Signin';
 import Menu from './components/Menu/Menu';
 import Entercust from './components/Entercust/Entercust';
+import Viewcust from './components/Viewcust/Viewcust';
 import Register from './components/Register/Register';
 import './App.css';
 
@@ -68,7 +69,10 @@ class App extends Component {
               <Menu isSignedIn={isSignedIn} onRouteChange={this.onRouteChange} />
               : ( route === 'entercust' ?
               <Entercust isSignedIn={isSignedIn} onRouteChange={this.onRouteChange} />
+              : (route === 'viewcust' ?
+              <Viewcust isSignedIn={isSignedIn} onRouteChange={this.onRouteChange} />
               : <Signin loadUser={this.loadUser} onRouteChange={this.onRouteChange} />
+            )
             )
         }
       </div>
