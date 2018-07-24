@@ -13,7 +13,9 @@ const Card = ({ name, phone, dogname, dogbreed, dogsize, dogage, specialneeds, g
         <p>{dogage}</p>
         <p>{specialneeds}</p>
         <p>{groomedbefore}</p>
-        <button type="button" className="btn btn-info"><img src={saveicon} /></button>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+          <img src={saveicon} alt='edit' />
+        </button>
       </div>
     </div>
   );
