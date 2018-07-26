@@ -4,8 +4,11 @@ import Signin from './components/Signin/Signin';
 import Menu from './components/Menu/Menu';
 import Entercust from './components/Entercust/Entercust';
 import Viewcust from './components/Viewcust/Viewcust';
-import Register from './components/Register/Register';
+// import Register from './components/Register/Register';
 import './App.css';
+import Alert from 'react-s-alert';
+import 'react-s-alert/dist/s-alert-default.css';
+import 'react-s-alert/dist/s-alert-css-effects/jelly.css';
 
 /*
 TODO:
@@ -75,6 +78,7 @@ class App extends Component {
             )
             )
         }
+        <Alert stack={{limit: 3}} timeout={3000} />
       </div>
     );
   }
