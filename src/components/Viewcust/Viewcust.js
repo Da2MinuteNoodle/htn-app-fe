@@ -9,6 +9,7 @@ class Viewcust extends React.Component {
     this.state = {
       customers: [],
       searchfield: '',
+      custId: '',
       custName: '',
       custPhone: '',
       dogName: '',
@@ -20,43 +21,59 @@ class Viewcust extends React.Component {
     }
   }
 
+  onExisting = () => {
+    this.setState({custId: document.getElementById('edit-form-customerid').value});
+    this.setState({custName: document.getElementById('edit-form-name').value});
+    this.setState({custPhone: document.getElementById('edit-form-phone').value});
+    this.setState({dogName: document.getElementById('edit-form-dogname').value});
+    this.setState({dogBreed: document.getElementById('edit-form-dogbreed').value});
+    this.setState({dogSize: document.getElementById('edit-form-dogsize').value});
+    this.setState({dogAge: document.getElementById('edit-form-dogage').value});
+    this.setState({specialNeeds: document.getElementById('edit-form-specialneeds').value});
+    this.setState({groomedBefore: document.getElementById('edit-form-groomedbefore').value});
+  }
+
   onCustNameChange = (event) => {
-    this.setState({custName: event.target.value})
-  }
+     this.setState({custName: event.target.value})
+   }
 
-  onCustPhoneChange = (event) => {
-    this.setState({custPhone: event.target.value})
-  }
+   onCustPhoneChange = (event) => {
+     this.setState({custPhone: event.target.value})
+   }
 
-  onDogNameChange = (event) => {
-    this.setState({dogName: event.target.value})
-  }
+   onDogNameChange = (event) => {
+     this.setState({dogName: event.target.value})
+   }
 
-  onDogBreedChange = (event) => {
-    this.setState({dogBreed: event.target.value})
-  }
+   onDogBreedChange = (event) => {
+     this.setState({dogBreed: event.target.value})
+   }
 
-  onDogSizeChange = (event) => {
-    this.setState({dogSize: event.target.value})
-  }
+   onDogSizeChange = (event) => {
+     this.setState({dogSize: event.target.value})
+   }
 
-  onDogAgeChange = (event) => {
-    this.setState({dogAge: event.target.value})
-  }
+   onDogAgeChange = (event) => {
+     this.setState({dogAge: event.target.value})
+   }
 
-  onSpecialNeedsChange = (event) => {
-    this.setState({specialNeeds: event.target.value})
-  }
+   onSpecialNeedsChange = (event) => {
+     this.setState({specialNeeds: event.target.value})
+   }
 
-  onGroomedBeforeChange = (event) => {
-    this.setState({groomedBefore: event.target.value})
-  }
+   onGroomedBeforeChange = (event) => {
+     this.setState({groomedBefore: event.target.value})
+ }
+
+
 
   onEditInfo = () => {
+    console.log(this.state)
     fetch('https://arcane-beyond-44438.herokuapp.com/editcust', {
       method: 'put',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
+        id: Number(this.state.custId),
         name: this.state.custName,
         phone: this.state.custPhone,
         dogname: this.state.dogName,
@@ -68,23 +85,13 @@ class Viewcust extends React.Component {
       })
     })
       .then(response => response.json())
-      .then(user => {
-        if (user.id) {
-          this.props.loadUser(user)
-          this.props.onRouteChange('home');
-        }
-      })
+      .then(this.props.onRouteChange('home'))
   }
-
-  editCustomer() {
-      //document.getElementById('edit-form-name').value = {name};
-    }
 
   componentDidMount() {
     fetch('https://arcane-beyond-44438.herokuapp.com/viewcust')
       .then(response => response.json())
-      .then(viewcust => this.setState({ customers: viewcust }))
-      .then(console.log("log: " + this.state.customers));
+      .then(viewcust => this.setState({ customers: viewcust }));
   }
 
   onSearchChange = (event) => {
@@ -103,7 +110,7 @@ class Viewcust extends React.Component {
               <h1 className="f1">Customers</h1>
               <SearchBox searchChange={this.onSearchChange} />
               <Scroll>
-                <CardList customers={filteredCustomers} />
+                <CardList customers={filteredCustomers} onexisting={this.onExisting} />
                 <div className="modal fade" id="editFormModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                   <div className="modal-dialog" role="document">
                     <div className="modal-content">
@@ -115,6 +122,10 @@ class Viewcust extends React.Component {
                         </button>
                       </div>
                       <div className="modal-body">
+                        <div className="form-group">
+                          <label htmlFor="id">Id:</label>
+                          <input type="text" className="form-control" id="edit-form-customerid" disabled name="customerid" />
+                        </div>
                         <div className="form-group">
                           <label htmlFor="usr">Customer Name:</label>
                           <input type="text" className="form-control" id="edit-form-name" name="name" onChange={this.onCustNameChange} />
@@ -147,10 +158,10 @@ class Viewcust extends React.Component {
                           Grommed Before?<br />
                           <label><input type="checkbox" name="check2" id="edit-form-groomedbefore" name="groomedbefore" onChange={this.onGroomedBeforeChange} />Yes</label>
                         </div>
-                      </div>
+                        </div>
                       <div className="modal-footer">
                         <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" className="btn btn-primary">Save changes</button>
+                        <button type="button" className="btn btn-primary" onLoad={this.onExisting} onClick={this.onEditInfo}>Save changes</button>
                       </div>
                     </div>
                   </div>

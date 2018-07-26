@@ -3,9 +3,10 @@ import saveicon from './edit.png';
 
 
 
-const Card = ({ id, name, phone, dogname, dogbreed, dogsize, dogage, specialneeds, groomedbefore }) => {
+const Card = ({ id, name, phone, dogname, dogbreed, dogsize, dogage, specialneeds, groomedbefore, onexisting }) => {
   const Editcustomer = () => {
       document.getElementById('edit-form-name').value = name;
+      document.getElementById('edit-form-customerid').value = id;
       document.getElementById('edit-form-phone').value = phone;
       document.getElementById('edit-form-dogname').value = dogname;
       document.getElementById('edit-form-dogbreed').value = dogbreed;
@@ -13,19 +14,26 @@ const Card = ({ id, name, phone, dogname, dogbreed, dogsize, dogage, specialneed
       document.getElementById('edit-form-dogage').value = dogage;
       document.getElementById('edit-form-specialneeds').value = specialneeds;
       document.getElementById('edit-form-groomedbefore').value = groomedbefore;
-      console.log({name})
+      console.log(id)
   }
+
+  const Onclick = () => {
+    Editcustomer()
+    onexisting()
+  }
+
   return (
     <div className="tc applecolor dib br3 pa3 ma2 grow bw2 shadow-5">
       <div>
-        <h2>Customer Name:{name}</h2>
+        <h2>Name: {name}</h2>
+        <p>Id: {id}</p>
         <p>Phone: {phone}</p>
         <p>Dog Name: {dogname}</p>
         <p>Dog Breed: {dogbreed}</p>
         <p>Dog Size: {dogsize}</p>
         <p>Dog Age: {dogage}</p>
         <p>Special Needs: {specialneeds}</p>
-        <p>Groomed Before:{groomedbefore}</p>
+        <p>Groomed Before: {groomedbefore}</p>
         <button
           type="button"
           className="btn applecolor"
@@ -40,7 +48,7 @@ const Card = ({ id, name, phone, dogname, dogbreed, dogsize, dogage, specialneed
           data-dogage={dogage}
           data-specialneeds={specialneeds}
           data-groomedbefore={groomedbefore}
-          onClick={Editcustomer}
+          onClick={Onclick}
           >
           <img src={saveicon} alt='edit' />
         </button>
