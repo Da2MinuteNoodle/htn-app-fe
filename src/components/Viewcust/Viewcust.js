@@ -85,7 +85,7 @@ class Viewcust extends React.Component {
       })
     })
       .then(response => response.json())
-      .then(this.props.onRouteChange('home'))
+      .then(this.props.onRouteChange('viewcust'))
   }
 
   componentDidMount() {
@@ -152,16 +152,16 @@ class Viewcust extends React.Component {
                         </div>
                         <div className="radio">
                           Special Needs?<br />
-                          <label><input type="checkbox" name="check1" id="edit-form-specialneeds" name="specialneeds" onChange={this.onSpecialNeedsChange} />Yes</label>
+                          <label><input type="checkbox" name="check1" id="edit-form-specialneeds" onChange={this.onSpecialNeedsChange} />Yes</label>
                         </div>
                         <div className="radio">
                           Grommed Before?<br />
-                          <label><input type="checkbox" name="check2" id="edit-form-groomedbefore" name="groomedbefore" onChange={this.onGroomedBeforeChange} />Yes</label>
+                          <label><input type="checkbox" name="check2" id="edit-form-groomedbefore" onChange={this.onGroomedBeforeChange} />Yes</label>
                         </div>
                         </div>
                       <div className="modal-footer">
                         <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" className="btn btn-primary" onLoad={this.onExisting} onClick={this.onEditInfo}>Save changes</button>
+                        <button type="button" className="btn btn-primary" onLoad={this.onExisting} onClick={this.onEditInfo} data-dismiss="modal">Save changes</button>
                       </div>
                     </div>
                   </div>
