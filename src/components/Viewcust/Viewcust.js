@@ -8,12 +8,6 @@ class Viewcust extends React.Component {
     super()
     this.state = {
       customers: [],
-<<<<<<< HEAD
-      searchfield: ''
-    }
-  }
-
-=======
       searchfield: '',
       custId: '',
       custName: '',
@@ -99,12 +93,10 @@ class Viewcust extends React.Component {
       .then(this.props.onRouteChange('home'))
   }
 
->>>>>>> modaltesting
   componentDidMount() {
     fetch('https://arcane-beyond-44438.herokuapp.com/viewcust')
       .then(response => response.json())
-      .then(viewcust => this.setState({ customers: viewcust }))
-      .then(console.log("log: " + this.state.customers));
+      .then(viewcust => this.setState({ customers: viewcust }));
   }
 
   onSearchChange = (event) => {
@@ -112,22 +104,6 @@ class Viewcust extends React.Component {
   }
 
   render() {
-<<<<<<< HEAD
-      const { customers, searchfield } = this.state;
-      const filteredCustomers = customers.filter(customer =>{
-        return customer.name.toLowerCase().includes(searchfield.toLowerCase())
-      })
-        return !customers.length ?
-        <h1>Loading</h1> :
-        (
-          <div className='tc'>
-            <h1 className="f1">Customers</h1>
-            <SearchBox searchChange={this.onSearchChange} />
-            <Scroll>
-              <CardList customers={filteredCustomers} />
-            </Scroll>
-          </div>
-=======
         const { customers, searchfield } = this.state;
         const filteredCustomers = customers.filter(customer =>{
           return customer.name.toLowerCase().includes(searchfield.toLowerCase())
@@ -201,9 +177,8 @@ class Viewcust extends React.Component {
                 </div>
               </Scroll>
             </div>
->>>>>>> modaltesting
           );
-    }
+      }
   }
 
 
