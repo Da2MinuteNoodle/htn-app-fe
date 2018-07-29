@@ -4,12 +4,8 @@ import Signin from './components/Signin/Signin';
 import Menu from './components/Menu/Menu';
 import Entercust from './components/Entercust/Entercust';
 import Viewcust from './components/Viewcust/Viewcust';
-<<<<<<< HEAD
-import Register from './components/Register/Register';
-=======
 import Booking from './components/Calendar/Calendar';
 // import Register from './components/Register/Register';
->>>>>>> modaltesting
 import './App.css';
 
 
