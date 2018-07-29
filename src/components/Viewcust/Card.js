@@ -3,7 +3,7 @@ import saveicon from './edit.png';
 
 
 
-const Card = ({ id, name, phone, dogname, dogbreed, dogsize, dogage, specialneeds, groomedbefore, onexisting }) => {
+const Card = ({ id, name, phone, dogname, dogbreed, dogsize, dogage, specialneeds, groomedbefore, onexisting, next_appt }) => {
   const Editcustomer = () => {
       document.getElementById('edit-form-name').value = name;
       document.getElementById('edit-form-customerid').value = id;
@@ -14,6 +14,7 @@ const Card = ({ id, name, phone, dogname, dogbreed, dogsize, dogage, specialneed
       document.getElementById('edit-form-dogage').value = dogage;
       document.getElementById('edit-form-specialneeds').value = specialneeds;
       document.getElementById('edit-form-groomedbefore').value = groomedbefore;
+      document.getElementById('edit-form-apptdate').value = next_appt;
       console.log(id)
   }
 
@@ -34,6 +35,7 @@ const Card = ({ id, name, phone, dogname, dogbreed, dogsize, dogage, specialneed
         <p>Dog Age: {dogage}</p>
         <p>Special Needs: {specialneeds}</p>
         <p>Groomed Before: {groomedbefore}</p>
+        <p>Next Appointment: {next_appt}</p>
         <button
           type="button"
           className="btn applecolor"
@@ -48,6 +50,7 @@ const Card = ({ id, name, phone, dogname, dogbreed, dogsize, dogage, specialneed
           data-dogage={dogage}
           data-specialneeds={specialneeds}
           data-groomedbefore={groomedbefore}
+          data-next_appt={next_appt}
           onClick={Onclick}
           >
           <img src={saveicon} alt='edit' />

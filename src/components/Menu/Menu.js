@@ -18,7 +18,7 @@ class Menu extends React.Component {
           </div>
           <div className="menu-buttons">
             <button type="button" onClick={() => onRouteChange('entercust')} className="btn btn-default menu-button">Enter Customer Info</button>
-            <button type="button" className="btn btn-default menu-button" href="calendar.html">Calendar/Timetable</button>
+            <button type="button" onClick={() => onRouteChange('calendar')} className="btn btn-default menu-button" href="calendar.html">Calendar/Timetable</button>
             <button type="button" onClick={() => onRouteChange('viewcust')} className="btn btn-default menu-button" href="view-cust.html">View Customers</button>
           </div>
         </article>

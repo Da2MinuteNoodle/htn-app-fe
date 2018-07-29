@@ -18,6 +18,7 @@ const CardList = ({ customers, onexisting }) => {
               dogage={customers[i].dogage}
               specialneeds={customers[i].specialneeds}
               groomedbefore={customers[i].groomedbefore}
+              next_appt={customers[i].next_appt}
               onexisting={onexisting}
             />
           );

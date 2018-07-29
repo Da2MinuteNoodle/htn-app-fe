@@ -4,11 +4,13 @@ import Signin from './components/Signin/Signin';
 import Menu from './components/Menu/Menu';
 import Entercust from './components/Entercust/Entercust';
 import Viewcust from './components/Viewcust/Viewcust';
+import Booking from './components/Calendar/Calendar';
 // import Register from './components/Register/Register';
 import './App.css';
 import Alert from 'react-s-alert';
 import 'react-s-alert/dist/s-alert-default.css';
 import 'react-s-alert/dist/s-alert-css-effects/jelly.css';
+
 
 /*
 TODO:
@@ -59,6 +61,10 @@ class App extends Component {
       this.setState({isSignedIn: true})
     } else if (route === 'entercust') {
       this.setState({isSignedIn: true})
+    } else if (route === 'viewcust') {
+      this.setState({isSignedIn: true})
+    } else if (route === 'calendar') {
+      this.setState({isSignedIn: true})
     }
     this.setState({route: route});
   }
@@ -74,6 +80,8 @@ class App extends Component {
               <Entercust isSignedIn={isSignedIn} onRouteChange={this.onRouteChange} />
               : (route === 'viewcust' ?
               <Viewcust isSignedIn={isSignedIn} onRouteChange={this.onRouteChange} />
+              : (route === 'calendar') ?
+              <Booking isSignedIn={isSignedIn} onRouteChange={this.onRouteChange}/>
               : <Signin loadUser={this.loadUser} onRouteChange={this.onRouteChange} />
             )
             )

@@ -17,7 +17,8 @@ class Viewcust extends React.Component {
       dogSize: '',
       dogAge: '',
       specialNeeds: '',
-      groomedBefore: ''
+      groomedBefore: '',
+      nextAppt: '',
     }
   }
 
@@ -31,6 +32,7 @@ class Viewcust extends React.Component {
     this.setState({dogAge: document.getElementById('edit-form-dogage').value});
     this.setState({specialNeeds: document.getElementById('edit-form-specialneeds').value});
     this.setState({groomedBefore: document.getElementById('edit-form-groomedbefore').value});
+    this.setState({nextAppt: document.getElementById('edit-form-apptdate').value});
   }
 
   onCustNameChange = (event) => {
@@ -65,10 +67,12 @@ class Viewcust extends React.Component {
      this.setState({groomedBefore: event.target.value})
  }
 
+   onApptChange = (event) => {
+     this.setState({nextAppt: event.target.value})
+ }
 
 
   onEditInfo = () => {
-    console.log(this.state)
     fetch('https://arcane-beyond-44438.herokuapp.com/editcust', {
       method: 'put',
       headers: {'Content-Type': 'application/json'},
@@ -81,11 +85,12 @@ class Viewcust extends React.Component {
         dogsize: this.state.dogSize,
         dogage: this.state.dogAge,
         specialneeds: this.state.specialNeeds,
-        groomedbefore: this.state.groomedBefore
+        groomedbefore: this.state.groomedBefore,
+        next_appt: this.state.nextAppt,
       })
     })
       .then(response => response.json())
-      .then(this.props.onRouteChange('viewcust'))
+      .then(this.props.onRouteChange('home'))
   }
 
   componentDidMount() {
@@ -157,6 +162,10 @@ class Viewcust extends React.Component {
                         <div className="radio">
                           Grommed Before?<br />
                           <label><input type="checkbox" name="check2" id="edit-form-groomedbefore" onChange={this.onGroomedBeforeChange} />Yes</label>
+                        </div>
+                        <div className="form-group">
+                          <label htmlFor="date">Next Appointment:</label>
+                          <input type="date" className="form-control" id="edit-form-apptdate" name="apptdate" onChange={this.onApptChange} />
                         </div>
                         </div>
                       <div className="modal-footer">
