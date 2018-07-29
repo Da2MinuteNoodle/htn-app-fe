@@ -4,8 +4,14 @@ import Signin from './components/Signin/Signin';
 import Menu from './components/Menu/Menu';
 import Entercust from './components/Entercust/Entercust';
 import Viewcust from './components/Viewcust/Viewcust';
+<<<<<<< HEAD
 import Register from './components/Register/Register';
+=======
+import Booking from './components/Calendar/Calendar';
+// import Register from './components/Register/Register';
+>>>>>>> modaltesting
 import './App.css';
+
 
 /*
 TODO:
@@ -56,6 +62,10 @@ class App extends Component {
       this.setState({isSignedIn: true})
     } else if (route === 'entercust') {
       this.setState({isSignedIn: true})
+    } else if (route === 'viewcust') {
+      this.setState({isSignedIn: true})
+    } else if (route === 'calendar') {
+      this.setState({isSignedIn: true})
     }
     this.setState({route: route});
   }
@@ -71,6 +81,8 @@ class App extends Component {
               <Entercust isSignedIn={isSignedIn} onRouteChange={this.onRouteChange} />
               : (route === 'viewcust' ?
               <Viewcust isSignedIn={isSignedIn} onRouteChange={this.onRouteChange} />
+              : (route === 'calendar') ?
+              <Booking isSignedIn={isSignedIn} onRouteChange={this.onRouteChange}/>
               : <Signin loadUser={this.loadUser} onRouteChange={this.onRouteChange} />
             )
             )
