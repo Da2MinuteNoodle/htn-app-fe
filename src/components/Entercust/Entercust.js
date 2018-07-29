@@ -106,11 +106,13 @@ class Entercust extends React.Component {
               </div>
               <div className="radio">
                 Special Needs?<br />
-                <label><input type="checkbox" name="checkbox" onChange={this.onSpecialNeedsChange} />Yes</label>
+                <label><input type="radio" name="optradio" onChange={this.onSpecialNeedsChange} />Yes</label>
+                <label><input type="radio" name="optradio" onChange={this.onSpecialNeedsChange} />No</label>
               </div>
               <div className="radio">
                 Grommed Before?<br />
-                <label><input type="checkbox" name="checkbox2" onChange={this.onGroomedBeforeChange} />Yes</label>
+                <label><input type="radio" name="optradio2" onChange={this.onGroomedBeforeChange} />Yes</label>
+                <label><input type="radio" name="optradio2" onChange={this.onGroomedBeforeChange} />No</label>
               </div>
             </div>
             <button type="submit" className="btn btn-default" onClick={this.onSubmitInfo}>Save</button>

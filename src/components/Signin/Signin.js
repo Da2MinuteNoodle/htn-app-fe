@@ -1,6 +1,5 @@
 import React from 'react';
 import logo from '../logo2.png';
-// import Alert from 'react-s-alert';
 
 class Signin extends React.Component {
   constructor(props) {
@@ -10,38 +9,6 @@ class Signin extends React.Component {
       signInPassword: ''
     }
   }
-
-// handleClick1() {
-//       Alert.warning('<h1>Success</h1>', {
-//           position: 'bottom-right',
-//           effect: 'jelly',
-//           offset: 100
-//       });
-//   }
-//   handleClick2() {
-//       Alert.info('Test message 2', {
-//           position: 'bottom-right',
-//           effect: 'jelly',
-//           timeout: 'none'
-//       });
-//   }
-//   handleClick3() {
-//       Alert.error('Wrong credentials', {
-//           position: 'top',
-//           effect: 'jelly'
-//       });
-//   }
-//
-//   handleClick4() {
-//       Alert.error('Unable to get user', {
-//           position: 'top',
-//           effect: 'jelly'
-//       });
-//   }
-//
-//   handleCloseAll() {
-//       Alert.closeAll();
-//   }
 
   onEmailChange = (event) => {
     this.setState({signInEmail: event.target.value})
@@ -63,7 +30,7 @@ class Signin extends React.Component {
       .then(response => response.json())
       .then(user => {
         if (user.id) {
-          this.props.loadUser(user);
+          this.props.loadUser(user)
           this.props.onRouteChange('home');
         }
       })
