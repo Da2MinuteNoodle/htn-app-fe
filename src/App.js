@@ -6,20 +6,17 @@ import Entercust from './components/Entercust/Entercust';
 import Viewcust from './components/Viewcust/Viewcust';
 import Booking from './components/Calendar/Calendar';
 // import Register from './components/Register/Register';
+import Alert from 'react-s-alert';
 import './App.css';
-// import Alert from 'react-s-alert';
-// import 'react-s-alert/dist/s-alert-default.css';
-// import 'react-s-alert/dist/s-alert-css-effects/jelly.css';
+
 
 
 /*
 TODO:
 Add Message boxes for errors
-Finish Enter Customer Info form
-  -Add good response when submitted
-  -Fix booleans not being entered correctly
-View Customer form
-finish the calendar
+Fix booleans not being entered correctly
+Delete Customer
+COMMENT EVERYTHING
 */
 
 const initialState = {
@@ -82,10 +79,11 @@ class App extends Component {
               <Viewcust isSignedIn={isSignedIn} onRouteChange={this.onRouteChange} />
               : (route === 'calendar') ?
               <Booking isSignedIn={isSignedIn} onRouteChange={this.onRouteChange}/>
-              : <Signin loadUser={this.loadUser} onRouteChange={this.onRouteChange} />
+              : <Signin loadUser={this.loadUser} onRouteChange={this.onRouteChange} alertBox={this.Alert} />
             )
             )
         }
+        <Alert stack={{limit: 3}} />
       </div>
     );
   }

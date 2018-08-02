@@ -2,6 +2,7 @@ import React from 'react';
 import CardList from './CardList';
 import SearchBox from './SearchBox';
 import Scroll from './Scroll';
+import deleteicon from './deleteicon.png'
 
 class Viewcust extends React.Component {
   constructor() {
@@ -103,6 +104,10 @@ class Viewcust extends React.Component {
     this.setState({ searchfield: event.target.value })
   }
 
+  onDeleteInfo = () => {
+    console.log('work in progress')
+  }
+
   render() {
         const { customers, searchfield } = this.state;
         const filteredCustomers = customers.filter(customer =>{
@@ -171,6 +176,7 @@ class Viewcust extends React.Component {
                       <div className="modal-footer">
                         <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="button" className="btn btn-primary" onLoad={this.onExisting} onClick={this.onEditInfo} data-dismiss="modal">Save changes</button>
+                        <button type="button" className="btn applecolor" onClick={this.onDeleteInfo}><img src={deleteicon} alt='delete' /></button>
                       </div>
                     </div>
                   </div>

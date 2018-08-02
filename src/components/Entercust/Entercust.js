@@ -1,4 +1,5 @@
 import React from 'react';
+import Alert from 'react-s-alert';
 
 class Entercust extends React.Component {
   constructor(props) {
@@ -14,6 +15,37 @@ class Entercust extends React.Component {
       groomedBefore: ''
     }
   }
+
+  handleClick1() {
+        Alert.info('Customer Entered', {
+            position: 'top',
+            effect: 'jelly',
+        });
+    }
+    handleClick2() {
+        Alert.info('Loading', {
+            position: 'top-right',
+            effect: 'jelly',
+            timeout: 2000
+        });
+    }
+    handleClick3() {
+        Alert.error('Error Entering Customer', {
+            position: 'top',
+            effect: 'jelly'
+        });
+    }
+
+    handleClick4() {
+        Alert.error('Unable to get user', {
+            position: 'top',
+            effect: 'jelly'
+        });
+    }
+
+    handleCloseAll() {
+        Alert.closeAll();
+    }
 
   onCustNameChange = (event) => {
     this.setState({custName: event.target.value})
@@ -48,6 +80,7 @@ class Entercust extends React.Component {
   }
 
   onSubmitInfo = () => {
+    this.handleClick2()
     fetch('https://arcane-beyond-44438.herokuapp.com/entercust', {
       method: 'post',
       headers: {'Content-Type': 'application/json'},
@@ -63,13 +96,19 @@ class Entercust extends React.Component {
       })
     })
       .then(response => response.json())
-      .then(user => {
-        if (user.id) {
-          this.props.loadUser(user)
-          this.props.onRouteChange('home');
+      .then(response => {
+        if (response === 'Incorrect form submission') {
+          this.handleClick3()
+        } else if (response === 'unable to enter customer') {
+          this.handleClick3()
+        } else {
+          this.handleClick1()
+          this.props.onRouteChange('home')
         }
       })
   }
+
+  // add a .then to the backend and send a response
 
   render() {
     return(
