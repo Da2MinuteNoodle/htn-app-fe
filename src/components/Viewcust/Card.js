@@ -24,7 +24,7 @@ const Card = ({ id, name, phone, dogname, dogbreed, dogsize, dogage, specialneed
   }
 
   return (
-    <div className="tc applecolor dib br3 pa3 ma2 grow bw2 shadow-5">
+    <div className="tc applecolor dib br3 pa3 ma2 dim bw2 shadow-5">
       <div>
         <h2>Name: {name}</h2>
         <p>Id: {id}</p>

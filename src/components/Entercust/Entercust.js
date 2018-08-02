@@ -47,6 +47,17 @@ class Entercust extends React.Component {
         Alert.closeAll();
     }
 
+    onExisting = () => {
+      this.setState({custName: document.getElementById('edit-form-name').value});
+      this.setState({custPhone: document.getElementById('edit-form-phone').value});
+      this.setState({dogName: document.getElementById('edit-form-dogname').value});
+      this.setState({dogBreed: document.getElementById('edit-form-dogbreed').value});
+      this.setState({dogSize: document.getElementById('edit-form-dogsize').value});
+      this.setState({dogAge: document.getElementById('edit-form-dogage').value});
+      this.setState({specialNeeds: document.getElementById('edit-form-specialneeds').value});
+      this.setState({groomedBefore: document.getElementById('edit-form-groomedbefore').value});
+    }
+
   onCustNameChange = (event) => {
     this.setState({custName: event.target.value})
   }
@@ -92,7 +103,7 @@ class Entercust extends React.Component {
         dogsize: this.state.dogSize,
         dogage: this.state.dogAge,
         specialneeds: this.state.specialNeeds,
-        groomedbefore: this.state.groomedBefore
+        groomedbefore: this.state.groomedBefore,
       })
     })
       .then(response => response.json())
@@ -108,7 +119,30 @@ class Entercust extends React.Component {
       })
   }
 
-  // add a .then to the backend and send a response
+  boolCheck = () => {
+    if (this.state.specialNeeds === "on") {
+      this.state.specialNeeds = true
+    } else {
+      this.state.specialNeeds = false
+    }
+    if (this.state.groomedBefore === 'on') {
+      this.state.groomedBefore = true
+    } else {
+      this.state.groomedBefore = false
+    }
+  }
+
+  onSubmitCustomer = () => {
+    this.onExisting()
+    this.boolCheck()
+    this.onSubmitInfo()
+  }
+
+  onTest = () => {
+    this.onExisting()
+    this.boolCheck()
+    console.log(this.state)
+  }
 
   render() {
     return(
@@ -118,41 +152,42 @@ class Entercust extends React.Component {
             <div className="enterForm-cust col-sm-6">
               <div className="form-group">
                 <label htmlFor="usr">Customer Name:</label>
-                <input type="text" className="form-control" id="usr" onChange={this.onCustNameChange} />
+                <input type="text" className="form-control" id="edit-form-name" onChange={this.onCustNameChange} />
               </div>
               <div className="form-group">
                 <label htmlFor="phone">Customer Phone:</label>
-                <input type="tel" className="form-control" onChange={this.onCustPhoneChange} />
+                <input type="tel" className="form-control" id="edit-form-phone" onChange={this.onCustPhoneChange} />
               </div>
             </div>
             <div className="formEnter-dog col-sm-6">
               <div className="enterForm-dog">
               <div className="form-group">
                 <label htmlFor="phone">Dog Name:</label>
-                <input type="text" className="form-control" onChange={this.onDogNameChange} />
+                <input type="text" className="form-control" id="edit-form-dogname" onChange={this.onDogNameChange} />
               </div>
               <div className="form-group">
                 <label htmlFor="phone">Dog Breed:</label>
-                <input type="text" className="form-control" onChange={this.onDogBreedChange} />
+                <input type="text" className="form-control" id='edit-form-dogbreed' onChange={this.onDogBreedChange} />
               </div>
               <div className="form-group">
                 <label htmlFor="phone">Dog Size:</label>
-                <input type="text" className="form-control" onChange={this.onDogSizeChange} />
+                <input type="text" className="form-control" id='edit-form-dogsize' onChange={this.onDogSizeChange} />
               </div>
               <div className="form-group">
                 <label htmlFor="phone">Dog Age:</label>
-                <input type="text" className="form-control" onChange={this.onDogAgeChange} />
+                <input type="text" className="form-control" id='edit-form-dogage' onChange={this.onDogAgeChange} />
               </div>
-              <div className="radio">
+              <div className="checkbox">
                 Special Needs?<br />
-                <label><input type="checkbox" name="checkbox" onChange={this.onSpecialNeedsChange} />Yes</label>
+                <label><input type="checkbox" name="checkbox" id='edit-form-specialneeds' onChange={this.onSpecialNeedsChange} />Yes </label>
               </div>
-              <div className="radio">
+              <div className="checkbox">
                 Grommed Before?<br />
-                <label><input type="checkbox" name="checkbox2" onChange={this.onGroomedBeforeChange} />Yes</label>
+                <label><input type="checkbox" name="checkbox2" id='edit-form-groomedbefore' onChange={this.onGroomedBeforeChange} />Yes </label>
               </div>
             </div>
-            <button type="submit" className="btn btn-default" onClick={this.onSubmitInfo}>Save</button>
+            <button type="submit" className="btn btn-default" onClick={this.onSubmitCustomer}>Save</button>
+            <button type="submit" className="btn btn-default" onClick={this.onTest}>Test</button>
             <input type="reset" value="Reset" className="btn btn-default" />
           </div>
         </div>
