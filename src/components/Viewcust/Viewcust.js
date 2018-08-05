@@ -104,8 +104,19 @@ class Viewcust extends React.Component {
      this.setState({nextAppt: event.target.value})
  }
 
+ onCheckAppt = () => {
+   if (!this.state.nextAppt) {
+     this.state.nextAppt === null
+   } else {
+     console.log('Error Not Working')
+   }
+ }
+
 
   onEditInfo = () => {
+    console.log(this.state.nextAppt)
+    this.onCheckAppt()
+    console.log(this.state.nextAppt)
     fetch('https://arcane-beyond-44438.herokuapp.com/editcust', {
       method: 'put',
       headers: {'Content-Type': 'application/json'},

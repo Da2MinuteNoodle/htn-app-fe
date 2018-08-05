@@ -35,7 +35,7 @@ const Card = ({ id, name, phone, dogname, dogbreed, dogsize, dogage, specialneed
         <p>Dog Age: {dogage}</p>
         <p>Special Needs: {specialneeds}</p>
         <p>Groomed Before: {groomedbefore}</p>
-        <p>Next Appointment: {next_appt}</p>
+        <p>Next Appointment: {next_appt.split('T')[0]}</p>
         <button
           type="button"
           className="btn applecolor"
