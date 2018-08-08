@@ -64,7 +64,6 @@ class Viewcust extends React.Component {
     this.setState({dogSize: document.getElementById('edit-form-dogsize').value});
     this.setState({dogAge: document.getElementById('edit-form-dogage').value});
     this.setState({specialNeeds: document.getElementById('edit-form-specialneeds').value});
-    this.setState({groomedBefore: document.getElementById('edit-form-groomedbefore').value});
     this.setState({nextAppt: document.getElementById('edit-form-apptdate').value});
   }
 
@@ -129,7 +128,6 @@ class Viewcust extends React.Component {
         dogsize: this.state.dogSize,
         dogage: this.state.dogAge,
         specialneeds: this.state.specialNeeds,
-        groomedbefore: this.state.groomedBefore,
         next_appt: this.state.nextAppt,
       })
     })
@@ -221,16 +219,12 @@ class Viewcust extends React.Component {
                             <label htmlFor="phone">Dog Age:</label>
                             <input type="text" className="form-control" id="edit-form-dogage" name="dogage" onChange={this.onDogAgeChange} />
                           </div>
-                          <div className="radio">
-                            Special Needs?<br />
-                            <label><input type="checkbox" name="check1" id="edit-form-specialneeds" onChange={this.onSpecialNeedsChange} />Yes</label>
-                          </div>
-                          <div className="radio">
-                            Grommed Before?<br />
-                            <label><input type="checkbox" name="check2" id="edit-form-groomedbefore" onChange={this.onGroomedBeforeChange} />Yes</label>
+                          <div className="form-group">
+                            <label htmlFor="phone">Special Needs:</label>
+                            <input type="text" className="form-control" id="edit-form-specialneeds" onChange={this.onSpecialNeedsChange} />
                           </div>
                           <div className="form-group">
-                            <label htmlFor="date">Next Appointment:</label>
+                            <label htmlFor="date">New Appointment <p>&#40;Leave empty to keep existing appointment &#41;</p></label>
                             <input type="date" className="form-control" id="edit-form-apptdate" name="apptdate" onChange={this.onApptChange} />
                           </div>
                           </div>
@@ -242,21 +236,21 @@ class Viewcust extends React.Component {
                       </div>
                     </div>
                   </div>
-                  <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLabel">Delete Customer?</h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <div className="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                    <div className="modal-dialog" role="document">
+                      <div className="modal-content">
+                        <div className="modal-header">
+                          <h5 className="modal-title" id="exampleModalLabel">Delete Customer?</h5>
+                          <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                           </button>
                         </div>
-                        <div class="modal-body">
+                        <div className="modal-body">
                           Are you sure you want to delete this customer?
                         </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                          <button type="button" class="btn btn-primary" onClick={this.onDeleteInfo} data-dismiss="modal">Delete Customer</button>
+                        <div className="modal-footer">
+                          <button type="button" className="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                          <button type="button" className="btn btn-primary" onClick={this.onDeleteInfo} data-dismiss="modal">Delete Customer</button>
                         </div>
                       </div>
                     </div>

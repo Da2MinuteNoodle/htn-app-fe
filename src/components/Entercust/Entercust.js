@@ -120,11 +120,11 @@ class Entercust extends React.Component {
   }
 
   boolCheck = () => {
-    if (this.state.specialNeeds === "on") {
-      this.state.specialNeeds = true
-    } else {
-      this.state.specialNeeds = false
-    }
+    // if (this.state.specialNeeds === "on") {
+    //   this.state.specialNeeds = true
+    // } else {
+    //   this.state.specialNeeds = false
+    // }
     if (this.state.groomedBefore === 'on') {
       this.state.groomedBefore = true
     } else {
@@ -177,9 +177,9 @@ class Entercust extends React.Component {
                 <label htmlFor="phone">Dog Age:</label>
                 <input type="text" className="form-control" id='edit-form-dogage' onChange={this.onDogAgeChange} />
               </div>
-              <div className="checkbox">
-                Special Needs?<br />
-                <label><input type="checkbox" name="checkbox" id='edit-form-specialneeds' onChange={this.onSpecialNeedsChange} />Yes </label>
+              <div className="form-group">
+                <label htmlFor="phone">Special Needs?</label>
+                <input type="text" className="checkbox" id='edit-form-specialneeds' onChange={this.onSpecialNeedsChange} />
               </div>
               <div className="checkbox">
                 Grommed Before?<br />

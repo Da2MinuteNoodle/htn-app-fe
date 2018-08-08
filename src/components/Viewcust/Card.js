@@ -13,7 +13,6 @@ const Card = ({ id, name, phone, dogname, dogbreed, dogsize, dogage, specialneed
       document.getElementById('edit-form-dogsize').value = dogsize;
       document.getElementById('edit-form-dogage').value = dogage;
       document.getElementById('edit-form-specialneeds').value = specialneeds;
-      document.getElementById('edit-form-groomedbefore').value = groomedbefore;
       document.getElementById('edit-form-apptdate').value = next_appt;
       console.log(id)
   }
@@ -21,6 +20,14 @@ const Card = ({ id, name, phone, dogname, dogbreed, dogsize, dogage, specialneed
   const Onclick = () => {
     Editcustomer()
     onexisting()
+  }
+
+  const CheckNextAppt = () => {
+    if (next_appt === null) {
+      return (<p>No Next Appointment</p>)
+    } else {
+      return (next_appt.split('T')[0])
+    }
   }
 
   return (
@@ -34,8 +41,7 @@ const Card = ({ id, name, phone, dogname, dogbreed, dogsize, dogage, specialneed
         <p>Dog Size: {dogsize}</p>
         <p>Dog Age: {dogage}</p>
         <p>Special Needs: {specialneeds}</p>
-        <p>Groomed Before: {groomedbefore}</p>
-        <p>Next Appointment: {next_appt.split('T')[0]}</p>
+        <p>Next Appointment: {CheckNextAppt()}</p>
         <button
           type="button"
           className="btn applecolor"
