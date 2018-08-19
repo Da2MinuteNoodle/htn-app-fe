@@ -1,23 +1,15 @@
+// importing all the modules into the main app
+
 import React, { Component } from 'react';
 import Navigation from './components/Navigation/Navigation';
 import Signin from './components/Signin/Signin';
 import Menu from './components/Menu/Menu';
 import Entercust from './components/Entercust/Entercust';
 import Viewcust from './components/Viewcust/Viewcust';
-// import Booking from './components/Calendar/Calendar';
-// import Register from './components/Register/Register';
 import Alert from 'react-s-alert';
 import './App.css';
 
-
-
-/*
-TODO:
-Add Message boxes for errors
-Fix booleans not being entered correctly
-Delete Customer
-COMMENT EVERYTHING
-*/
+// Setting state
 
 const initialState = {
   input: '',
@@ -32,6 +24,9 @@ const initialState = {
     joined: ''
 }
 }
+
+// Starting the main app component
+
 class App extends Component {
   constructor() {
     super();
@@ -51,6 +46,8 @@ class App extends Component {
     this.setState({input: event.target.value});
   }
 
+  // Setting route change function.
+
   onRouteChange = (route) => {
     if (route === 'signout') {
       this.setState(initialState)
@@ -65,6 +62,11 @@ class App extends Component {
     }
     this.setState({route: route});
   }
+
+  // Rendering the main app from the imported components
+  //
+  // Which includes the Alerts at the bottom, it uses multiple if statements to check which module to render first.
+  // The default is signin because of the default route being equal to nothing.
 
   render() {
     const { isSignedIn, route } = this.state;

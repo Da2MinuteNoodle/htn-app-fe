@@ -12,7 +12,6 @@ class Entercust extends React.Component {
       dogSize: '',
       dogAge: '',
       specialNeeds: '',
-      groomedBefore: ''
     }
   }
 
@@ -55,7 +54,6 @@ class Entercust extends React.Component {
       this.setState({dogSize: document.getElementById('edit-form-dogsize').value});
       this.setState({dogAge: document.getElementById('edit-form-dogage').value});
       this.setState({specialNeeds: document.getElementById('edit-form-specialneeds').value});
-      this.setState({groomedBefore: document.getElementById('edit-form-groomedbefore').value});
     }
 
   onCustNameChange = (event) => {
@@ -103,7 +101,6 @@ class Entercust extends React.Component {
         dogsize: this.state.dogSize,
         dogage: this.state.dogAge,
         specialneeds: this.state.specialNeeds,
-        groomedbefore: this.state.groomedBefore,
       })
     })
       .then(response => response.json())
@@ -179,15 +176,10 @@ class Entercust extends React.Component {
               </div>
               <div className="form-group">
                 <label htmlFor="phone">Special Needs?</label>
-                <input type="text" className="checkbox" id='edit-form-specialneeds' onChange={this.onSpecialNeedsChange} />
-              </div>
-              <div className="checkbox">
-                Grommed Before?<br />
-                <label><input type="checkbox" name="checkbox2" id='edit-form-groomedbefore' onChange={this.onGroomedBeforeChange} />Yes </label>
+                <input type="text" className="form-control" id='edit-form-specialneeds' onChange={this.onSpecialNeedsChange} />
               </div>
             </div>
             <button type="submit" className="btn btn-default" onClick={this.onSubmitCustomer}>Save</button>
-            <button type="submit" className="btn btn-default" onClick={this.onTest}>Test</button>
             <input type="reset" value="Reset" className="btn btn-default" />
           </div>
         </div>
