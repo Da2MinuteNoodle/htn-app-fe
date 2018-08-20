@@ -91,4 +91,6 @@ class App extends Component {
   }
 }
 
+// Exports the app for the index.js file to use.
+
 export default App;

@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from '../logo2.png';
 
+//Declares the menu funtion
 class Menu extends React.Component {
   constructor(props) {
     super(props);
@@ -9,6 +10,8 @@ class Menu extends React.Component {
       signInPassword: ''
     }
   }
+
+  // Two buttons rendered onto the menu page.
   render() {
     const { onRouteChange } = this.props;
     return(

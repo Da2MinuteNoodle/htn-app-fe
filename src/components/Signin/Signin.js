@@ -2,6 +2,8 @@ import React from 'react';
 import logo from '../logo2.png';
 import Alert from 'react-s-alert';
 
+
+// Defining the main signin function
 class Signin extends React.Component {
   constructor(props) {
     super(props);
@@ -10,6 +12,8 @@ class Signin extends React.Component {
       signInPassword: ''
     }
   }
+
+  // Alerts are defined below for use later
 
 handleClick1() {
       Alert.warning('<h1>Success</h1>', {
@@ -51,6 +55,8 @@ handleClick1() {
     this.setState({signInPassword: event.target.value})
   }
 
+  //When the signin button is pressed this function is called.
+
   onSubmitSignIn = () => {
     this.handleClick2()
     fetch('https://arcane-beyond-44438.herokuapp.com/signin', {
@@ -71,6 +77,8 @@ handleClick1() {
         }
       })
   }
+
+  // renderes the signin page when called in app.js
 
   render() {
     const { onRouteChange } = this.props;
@@ -114,5 +122,7 @@ handleClick1() {
     );
   }
 }
+
+//exports the signin function
 
 export default Signin;

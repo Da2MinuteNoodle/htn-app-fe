@@ -1,7 +1,7 @@
 import React from 'react';
 import saveicon from './edit.png';
 
-
+// THis function creates a new card for each of the customers in a database
 
 const Card = ({ id, name, phone, dogname, dogbreed, dogsize, dogage, specialneeds, groomedbefore, onexisting, next_appt }) => {
   const Editcustomer = () => {
@@ -22,6 +22,8 @@ const Card = ({ id, name, phone, dogname, dogbreed, dogsize, dogage, specialneed
     onexisting()
   }
 
+  // Just setting the next appointment to nothign if there is none
+
   const CheckNextAppt = () => {
     if (next_appt === null) {
       return (<p>No Next Appointment</p>)
@@ -29,6 +31,8 @@ const Card = ({ id, name, phone, dogname, dogbreed, dogsize, dogage, specialneed
       return (next_appt.split('T')[0])
     }
   }
+
+  // Rendering the final function with the fprovided info from the CardList.js
 
   return (
     <div className="tc applecolor dib br3 pa3 ma2 dim bw2 shadow-5">

@@ -1,6 +1,9 @@
 import React from 'react';
 import CardList from './CardList';
 
+// THis calendar will be used in a later version
+
+
 class Booking extends React.Component {
   constructor(  ) {
     super();

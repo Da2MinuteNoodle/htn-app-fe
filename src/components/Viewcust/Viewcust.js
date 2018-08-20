@@ -5,6 +5,8 @@ import Scroll from './Scroll';
 import Alert from 'react-s-alert';
 import deleteicon from './deleteicon.png';
 
+// Defining the viewcust function
+
 class Viewcust extends React.Component {
   constructor() {
     super()
@@ -23,6 +25,8 @@ class Viewcust extends React.Component {
       nextAppt: '',
     }
   }
+
+  // Alerts are defined here
 
   handleClick1() {
         Alert.info('Customer Deleted', {
@@ -55,6 +59,8 @@ class Viewcust extends React.Component {
         Alert.closeAll();
     }
 
+    // Sets the existing data for each of the cards to the state above
+
   onExisting = () => {
     this.setState({custId: document.getElementById('edit-form-customerid').value});
     this.setState({custName: document.getElementById('edit-form-name').value});
@@ -66,6 +72,8 @@ class Viewcust extends React.Component {
     this.setState({specialNeeds: document.getElementById('edit-form-specialneeds').value});
     this.setState({nextAppt: document.getElementById('edit-form-apptdate').value});
   }
+
+  // When the fields change it changes the state above
 
   onCustNameChange = (event) => {
      this.setState({custName: event.target.value})
@@ -103,6 +111,8 @@ class Viewcust extends React.Component {
      this.setState({nextAppt: event.target.value})
  }
 
+ //A Fcuntion that is called when i was testing somethign
+
  onCheckAppt = () => {
    if (!this.state.nextAppt) {
      this.state.nextAppt === null
@@ -111,6 +121,7 @@ class Viewcust extends React.Component {
    }
  }
 
+ // When the edit button is changed this function gets called to mae the modal with all of the info for that customer
 
   onEditInfo = () => {
     console.log(this.state.nextAppt)
@@ -145,6 +156,8 @@ class Viewcust extends React.Component {
     this.setState({ searchfield: event.target.value })
   }
 
+  // Functioqn for deleting a customer which also calls another function that is a modal
+
   onDeleteInfo = () => {
     fetch('https://arcane-beyond-44438.herokuapp.com/deletecust', {
       method: 'post',
@@ -165,6 +178,8 @@ class Viewcust extends React.Component {
       }
     })
   }
+
+  //Rendering the view customer form with the search
 
   render() {
         const { customers, searchfield } = this.state;

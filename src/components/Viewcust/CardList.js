@@ -1,6 +1,9 @@
 import React from 'react';
 import Card from './Card';
 
+
+// Rendering the card list for each customers
+// Also parsing the customer array onto this form
 const CardList = ({ customers, onexisting }) => {
   return (
     <div>

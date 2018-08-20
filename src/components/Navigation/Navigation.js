@@ -1,5 +1,7 @@
 import React from 'react';
 
+// Just the navigation function which adds the buttons in the top right corner.
+
 const Navigation = ({ onRouteChange, isSignedIn }) => {
     if (isSignedIn) {
       return (

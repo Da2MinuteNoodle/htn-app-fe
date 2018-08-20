@@ -1,6 +1,8 @@
 import React from 'react';
 import Alert from 'react-s-alert';
 
+// Defining the entercust function and then immedietly setting state
+
 class Entercust extends React.Component {
   constructor(props) {
     super(props);
@@ -14,6 +16,8 @@ class Entercust extends React.Component {
       specialNeeds: '',
     }
   }
+
+  // Handeling the alerts
 
   handleClick1() {
         Alert.info('Customer Entered', {
@@ -46,6 +50,8 @@ class Entercust extends React.Component {
         Alert.closeAll();
     }
 
+    // Again setting the existing values of the boxes, by default its null
+
     onExisting = () => {
       this.setState({custName: document.getElementById('edit-form-name').value});
       this.setState({custPhone: document.getElementById('edit-form-phone').value});
@@ -55,6 +61,8 @@ class Entercust extends React.Component {
       this.setState({dogAge: document.getElementById('edit-form-dogage').value});
       this.setState({specialNeeds: document.getElementById('edit-form-specialneeds').value});
     }
+
+    // As the values of the text box changes, so does state
 
   onCustNameChange = (event) => {
     this.setState({custName: event.target.value})
@@ -88,6 +96,8 @@ class Entercust extends React.Component {
     this.setState({groomedBefore: event.target.value})
   }
 
+  // Submit info is clicked this function gets caled to send info to the back end.
+
   onSubmitInfo = () => {
     this.handleClick2()
     fetch('https://arcane-beyond-44438.herokuapp.com/entercust', {
@@ -116,6 +126,8 @@ class Entercust extends React.Component {
       })
   }
 
+  // check is groomed before is a boolean but is not included.
+
   boolCheck = () => {
     // if (this.state.specialNeeds === "on") {
     //   this.state.specialNeeds = true
@@ -129,6 +141,8 @@ class Entercust extends React.Component {
     }
   }
 
+  // When a customer is submited this function is called
+
   onSubmitCustomer = () => {
     this.onExisting()
     this.boolCheck()
@@ -140,6 +154,8 @@ class Entercust extends React.Component {
     this.boolCheck()
     console.log(this.state)
   }
+
+  // Rendering the final function on the page.
 
   render() {
     return(
