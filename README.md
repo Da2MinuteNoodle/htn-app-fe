@@ -1,5 +1,5 @@
-Dear Mr. Coggins,
-Please follow the files and folders where it says "Adding Comments" those are the main files of the program and everything else is just dependencies or other css files.
+Dear Mr. Coggins,<br>
+Please follow the files and folders where it says "Adding Comments" those are the main files of the program and everything else is just dependencies or other css files. <br> The same applies for the back end github<br>
 If you encounter any issues please email me and I can sort them out. Thanks
 
 
